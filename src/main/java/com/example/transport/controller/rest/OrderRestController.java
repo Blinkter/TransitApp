@@ -20,7 +20,7 @@ import com.example.transport.repository.OrderRepository;
 public class OrderRestController {
 
 	@Autowired
-	private OrderRepository repository; 
+	private OrderRepository repository;
 	@Autowired
 	private CustomOrderRepository customRepository;
 
@@ -31,22 +31,22 @@ public class OrderRestController {
 
 	@PostMapping("/orders")
 	public void addOrder(@RequestBody Order newOrder) {
-		
+
 		double distance = customRepository.calculate(newOrder.getSourceAddress(), newOrder.getDestinationAddress());
 		newOrder.setDistance(distance);
 		repository.save(newOrder);
 	}
-	
+
 	@PutMapping("/orders")
 	public Order updateOrder(@RequestBody Order theOrder) {
 		repository.save(theOrder);
-		
+
 		return theOrder;
 	}
-	
+
 	@DeleteMapping("/orders/{orderId}")
 	public void deleteOrder(@PathVariable Long orderId) {
-		
+
 		repository.deleteById(orderId);
 	}
 
@@ -61,7 +61,6 @@ public class OrderRestController {
 		return order;
 	}
 
-	
 	@GetMapping("/test")
 	public ModelAndView order() {
 		ModelAndView modelAndView = new ModelAndView();
