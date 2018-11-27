@@ -1,8 +1,6 @@
 package com.example.transport.repository;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +16,7 @@ public class CustomOrderRepositoryImpl implements CustomOrderRepository {
 	@Override
 	public double calculate(String sourceAddress, String destinationAddress) {
 
-		String key = "xxx";
+		String key = "5TsCSRqAOc7GDUhABKy206AnDBVPhAzG";
 		String s = String.format("http://www.mapquestapi.com/directions/v2/routematrix?key=%s", key);
 
 		ObjectMapper mapper = new ObjectMapper();
