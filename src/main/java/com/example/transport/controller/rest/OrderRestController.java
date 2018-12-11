@@ -55,9 +55,9 @@ public class OrderRestController {
 
 		Optional<Order> order = repository.findById(orderId);
 
-		 if(order == null) {
-		 throw new OrderNotFoundException("Order id not found - " + orderId);
-		 }
+//		 if(order == null) {
+//		 throw new OrderNotFoundException("Order id not found - " + orderId);
+//		 }
 		return order;
 	}
 
