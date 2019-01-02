@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class CustomOrderRepositoryImpl implements CustomOrderRepository {
 
@@ -25,7 +26,7 @@ public class CustomOrderRepositoryImpl implements CustomOrderRepository {
 
 		// odczytać odebraną odpowiedź
 
-		// ObjectNode locationsJson = mapper.createObjectNode();
+		 ObjectNode locationsJson = mapper.createObjectNode();
 		//
 		// ArrayNode locationsArray = mapper.createArrayNode();
 		// locationsArray.add(sourceAddress + ", Polska");
@@ -38,7 +39,7 @@ public class CustomOrderRepositoryImpl implements CustomOrderRepository {
 		try {
 			String temp = String.format("{ \"locations\": [%s+ \", Polska\",%s+ \", Polska\"] }", sourceAddress,
 					destinationAddress);
-			JSONObject locationsJson = new JSONObject(temp);
+			//JSONObject locationsJson = new JSONObject(temp);
 
 			URL url = new URL(s);
 			HttpURLConnection yc = (HttpURLConnection) url.openConnection();
