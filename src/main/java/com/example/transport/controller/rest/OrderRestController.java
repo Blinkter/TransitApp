@@ -33,6 +33,7 @@ public class OrderRestController {
 	public void addOrder(@RequestBody Order newOrder) {
 
 		double distance = customRepository.calculate(newOrder.getSourceAddress(), newOrder.getDestinationAddress());
+		
 		newOrder.setDistance(distance);
 		repository.save(newOrder);
 	}
