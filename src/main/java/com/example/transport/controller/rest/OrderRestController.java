@@ -33,7 +33,7 @@ public class OrderRestController {
 	public void addOrder(@RequestBody Order newOrder) {
 
 		double distance = customRepository.calculate(newOrder.getSourceAddress(), newOrder.getDestinationAddress());
-		
+
 		newOrder.setDistance(distance);
 		repository.save(newOrder);
 	}
@@ -56,11 +56,11 @@ public class OrderRestController {
 
 		Optional<Order> order = repository.findById(orderId);
 
-//		 if(order == null) {
-//		 throw new OrderNotFoundException("Order id not found - " + orderId);
-//		 }
+		// if(order == null) {
+		// throw new OrderNotFoundException("Order id not found - " + orderId);
+		// }
 		return order;
-		
+
 	}
 
 	@GetMapping("/test")
